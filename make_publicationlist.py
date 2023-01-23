@@ -2,11 +2,11 @@
 Copyright Sunao Sugiyama
 
 How to use.
-1. prepare a bib file
+1. prepare a bib file (see readme to extract your bib from NANA/ADS)
 2. edit the bib file
-    - repace your name -> \myname{your name}
     - add two items to every entry: contribution and alphabetical
-3. run this script, then ``my_publications.tex'' is generated auto matically.
+    - replace your name with emphasized name: use `processbib.py`
+3. run this script, then ``publicationlist.tex'' is generated auto matically.
 """
 
 import bibtexparser # https://bibtexparser.readthedocs.io/en/master/
@@ -48,7 +48,7 @@ def split_into_major_and_contributing(entries):
     for entry in entries:
         if entry['contribution'] == 'major':
             major.append(entry)
-        elif entry['contribution'] == 'contributing':
+        elif entry['contribution'] == 'contributing' or entry['contribution'] == 'minor':
             contributing.append(entry)
     return major, contributing
 
@@ -68,16 +68,23 @@ def my_publications_sorted_by_date():
     tex+= '\\noindent\\textbf{\\textit{Major author}}\n'
     tex+= '\\begin{enumerate}\n'
     for entry in entries_major:
-        tex+= "\\item " + check_ab(entry) + "\\bibentry{%s}"%entry['ID'] + '\n'
+        tex+= "\\item " + check_ab(entry) + "\\bibentry{%s}"%entry['ID']
+        if 'status' in entry:
+            tex += ', %s'%entry['status']
+        tex += '\n'
     tex+= '\\end{enumerate}\n'
     tex+= '\n'
 
-    tex+= '\\noindent\\textbf{\\textit{Contributing author}}\n'
-    tex+= '\\begin{enumerate}\n'
-    tex+= '\\setcounter{enumi}{%d}'%len(entries_major)
-    for entry in entries_contributing:
-        tex+= "\\item " + check_ab(entry) + "\\bibentry{%s}"%entry['ID'] + '\n'
-    tex+= '\\end{enumerate}'
+    if len(entries_contributing) > 0:
+        tex+= '\\noindent\\textbf{\\textit{Contributing author}}\n'
+        tex+= '\\begin{enumerate}\n'
+        tex+= '\\setcounter{enumi}{%d}'%len(entries_major)
+        for entry in entries_contributing:
+            tex+= "\\item " + check_ab(entry) + "\\bibentry{%s}"%entry['ID']
+            if 'status' in entry:
+                tex += ', %s'%entry['status']
+            tex += '\n'
+        tex+= '\\end{enumerate}'
 
     with open('publicationlist.tex', 'w') as f:
         f.write(tex)

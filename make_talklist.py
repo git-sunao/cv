@@ -14,7 +14,7 @@ def discard_row_with_NaN_title(df):
         else:
             sel.append(False)
     sel = np.array(sel)
-    return df[sel]
+    return df[sel] 
 
 def replace_double_quatation(string):
     ss = string.split('"')
@@ -24,9 +24,14 @@ def replace_double_quatation(string):
         string_new += d+s
     return string_new
 
-def write(df, sep_by_year=True):
+def write(df, sep_by_year=True, only_selected=True, inverse=False):
     # sort by year and month 
     df.sort_values(by=['year','month'], inplace=True, ascending = [False, False])
+
+    if only_selected:
+        N_talk_all = len(df)
+        df = df.query('selected == 1')
+        N_talk_selected = len(df)
 
     lines = []
     years = []
@@ -76,9 +81,16 @@ def write(df, sep_by_year=True):
             lines2.append(l)
         lines = '\n\n'.join(lines2[::-1])
     else:
-        lines = np.insert(lines, 0, '\\begin{etaremune}')
-        lines = np.append(lines, '\\end{etaremune}')
+        if inverse:
+            lines = np.insert(lines, 0, '\\begin{etaremune}')
+            lines = np.append(lines, '\\end{etaremune}')
+        else:
+            lines = np.insert(lines, 0, '\\begin{enumerate}')
+            lines = np.append(lines, '\\end{enumerate}')
         lines = '\n'.join(lines)
+
+    if only_selected:
+        lines = 'Listing %d selected talks among %d talks.\n'%(N_talk_selected, N_talk_all) + lines
 
     with open('talklist.tex', 'w') as f:
         f.write(lines)
@@ -87,5 +99,5 @@ def write(df, sep_by_year=True):
 if __name__ == '__main__':
     df = read()
     df = discard_row_with_NaN_title(df)
-    #write(df, sep_by_year=False)
-    write(df, sep_by_year=True)
+    write(df, sep_by_year=False)
+    #write(df, sep_by_year=True)
