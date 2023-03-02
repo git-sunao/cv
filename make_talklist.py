@@ -99,5 +99,5 @@ def write(df, sep_by_year=True, only_selected=True, inverse=False):
 if __name__ == '__main__':
     df = read()
     df = discard_row_with_NaN_title(df)
-    write(df, sep_by_year=False)
+    write(df, sep_by_year=False, only_selected=False)
     #write(df, sep_by_year=True)
