@@ -6,7 +6,7 @@ How to use.
 2. edit the bib file
     - add two items to every entry: contribution and alphabetical
     - replace your name with emphasized name: use `processbib.py`
-3. run this script, then ``publicationlist.tex'' is generated auto matically.
+3. run this script, then ``publist/publist.tex'' is generated auto matically.
 """
 
 import bibtexparser # https://bibtexparser.readthedocs.io/en/master/
@@ -53,7 +53,7 @@ def split_into_major_and_contributing(entries):
     return major, contributing
 
 def my_publications_sorted_by_date():
-    bibd = load_bib('refs.bib')
+    bibd = load_bib('publists/refs.bib')
     entries_sorted = sort_entries_by_year_month(bibd)
     entries_major, entries_contributing = split_into_major_and_contributing(entries_sorted)
 
@@ -86,7 +86,7 @@ def my_publications_sorted_by_date():
             tex += '\n'
         tex+= '\\end{enumerate}'
 
-    with open('publicationlist.tex', 'w') as f:
+    with open('publists/publist.tex', 'w') as f:
         f.write(tex)
 
 if __name__ == '__main__':

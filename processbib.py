@@ -22,6 +22,6 @@ def emphasize_myname(bib):
     return bib
 
 if __name__ == '__main__':
-   bib = load_bib('refs.bib')
+   bib = load_bib('publists/refs.bib')
    bib = emphasize_myname(bib)
-   dump_bib('refs.bib', bib)
+   dump_bib('publists/refs.bib', bib)

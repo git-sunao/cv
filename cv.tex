@@ -20,12 +20,12 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass{resume} % Use the custom resume.cls style
+\documentclass{sty/resume} % Use the custom resume.cls style
 
 \usepackage[left=0.8 in,top=0.4in,right=0.8 in,bottom=0.4in]{geometry} % Document margins
 \usepackage{bibentry}
 \usepackage[dvipdfmx]{hyperref}
-\usepackage{aas_macros}
+\usepackage{sty/aas_macros}
 \usepackage{etaremune}
 \newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}} 
 \newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
@@ -134,17 +134,17 @@ B.A. in Physics, March, 2018
 \clearpage
 \begin{rSection}{PUBLICATIONS}
     For up-to-date list of my papers, please see \href{https://ui.adsabs.harvard.edu/search/filter_author_facet_hier_fq_author=AND&filter_author_facet_hier_fq_author=author_facet_hier%3A%221%2FSugiyama%2C%20S%2FSugiyama%2C%20Sunao%22&fq=%7B!type%3Daqp%20v%3D%24fq_author%7D&fq_author=(author_facet_hier%3A%221%2FSugiyama%2C%20S%2FSugiyama%2C%20Sunao%22)&q=pubdate%3A%5B2001-01%20TO%209999-12%5D%20author%3A(%22Sugiyama%2CSunao%22)&sort=date%20desc%2C%20bibcode%20desc&p_=0}{ADS}.
-    \nobibliography{refs}
+    \nobibliography{publists/refs}
     \vspace{-19em}
-    \input{publicationlist.tex}
-    \bibliographystyle{etalstyle}
+    \input{publists/publicationlist.tex}
+    \bibliographystyle{sty/etalstyle}
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
 %	PRESENTATIONS AT CONFERENCES, WORKSHOPS, AND MEETINGS
 %----------------------------------------------------------------------------------------
 \begin{rSection}{Selected talks}
-    \input{talklist.tex}
+    \input{talklists/talklist.tex}
 \end{rSection}
 
 %----------------------------------------------------------------------------------------

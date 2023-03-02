@@ -2,7 +2,7 @@ import pandas # openpyxl and xlrd must be installed
 import numpy as np
 
 def read():
-    df = pandas.read_excel('talklist.xlsx', engine='openpyxl')
+    df = pandas.read_excel('talklists/talklist.xlsx', engine='openpyxl')
     return df
 
 def discard_row_with_NaN_title(df):
@@ -24,7 +24,7 @@ def replace_double_quatation(string):
         string_new += d+s
     return string_new
 
-def write(df, sep_by_year=True, only_selected=True, inverse=False):
+def write(df, sep_by_year=True, only_selected=True, inverse=False, fnameout=None):
     # sort by year and month 
     df.sort_values(by=['year','month'], inplace=True, ascending = [False, False])
 
@@ -92,12 +92,16 @@ def write(df, sep_by_year=True, only_selected=True, inverse=False):
     if only_selected:
         lines = 'Listing %d selected talks among %d talks.\n'%(N_talk_selected, N_talk_all) + lines
 
-    with open('talklist.tex', 'w') as f:
+    if fnameout is None:
+        fnameout = 'talklist.tex'
+
+    with open(fnameout, 'w') as f:
         f.write(lines)
 
 
 if __name__ == '__main__':
     df = read()
     df = discard_row_with_NaN_title(df)
-    write(df, sep_by_year=False, only_selected=False)
-    #write(df, sep_by_year=True)
+    write(df, sep_by_year=False, only_selected=True , fnameout='talklists/talklist.tex')
+    write(df, sep_by_year=False, only_selected=False, fnameout='talklists/talklist_full.tex')
+    write(df, sep_by_year=True , only_selected=False, fnameout='talklists/talklist_full_sepbyyear.tex')
