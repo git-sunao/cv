@@ -29,8 +29,9 @@
 \usepackage{etaremune}
 \newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}} 
 \newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
-\newcommand{\myname}[1]{\textbf{#1}}
+\newcommand{\myname}[1]{{\textbf{#1}}}
 \newcommand{\comment}[1]{}
+\newcommand{\heading}[1]{\hspace{-1.5em}\noindent\textbf{\textit{#1}}}
 \hypersetup{
 setpagesize=false,
 bookmarksnumbered=true,
@@ -54,7 +55,7 @@ citecolor=red,
             & University of Pennsylvania, Philadelphia, PA 19104, USA \\
     Room    & 4N21 \\
     Email   & ssunao@sas.upenn.edu \\
-    Webpage & \url{https://git-sunao.github.io} \\
+    Website & \url{https://git-sunao.github.io} \\
     Github  & \url{https://github.com/git-sunao} \\
     \end{tabular}
 \end{rSection}
@@ -64,14 +65,14 @@ citecolor=red,
 %----------------------------------------------------------------------------------------
 
 \begin{rSection}{RESEARCH INTERESTS}
-    \textbf{Theoretical and Observational cosmology}: 
+  {\textbf{Theoretical and Observational cosmology}}: 
     \textit{large-scale structure of the Universe, gravitational weak/micro lensing, primordial black hole}
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
 %	MAJOR INVOLVEMENT IN LARGE PROJECTS
 %----------------------------------------------------------------------------------------
-\begin{rSection}{MAJOR INVOLVEMENT IN LARGE PROJECTS}
+\begin{rSection}{Collaborations}
     Subaru HSC weak lensing working group, member (2021-present)\\
     Dark Enrgy Survey (DES), member (2024-present)
 \end{rSection}
@@ -81,12 +82,16 @@ citecolor=red,
 %----------------------------------------------------------------------------------------
 
 \begin{rSection}{Positions}
-{\bf \href{https://www.physics.upenn.edu/people/sunao-sugiyama}{Postdoctoral researcher}} \hfill {Sep. 2023 -- Now}\\
+\heading{Current positions}
+
+{\bf \href{https://www.physics.upenn.edu/people/sunao-sugiyama}{Postdoctoral researcher}} \hfill {Sep. 2023 -- Present}\\
 University of Pennsylvania, Philadelphia, the United States\\
 Mentor: Prof. Bhuvnesh Jain
 
-{\bf \href{https://www.jsps.go.jp/english/e-ab/index.html}{JSPS Overseas Research Fellow}} \hfill {Sep. 2023 -- Now}\\
+{\bf \href{https://www.jsps.go.jp/english/e-ab/index.html}{JSPS Overseas Research Fellow}} \hfill {Sep. 2023 -- Present}\\
 University of Pennsylvania, Philadelphia, the United States
+
+\heading{Past positions}
 
 {\bf \href{https://db.ipmu.jp/member/personal/5761en.html}{Postdoctoral researcher}} \hfill {Apr. 2023 -- Aug. 2023}\\
 Kavli IPMU, Chiba, Japan\\
@@ -97,13 +102,9 @@ Beyond AI, Tokyo, Japan
 
 {\bf \href{https://www.jsps.go.jp/english/e-pd/}{JSPS Research Fellowships for Young Scientists} (DC2)} \hfill {Apr. 2021 -- Mar. 2023}\\
 Kavli IPMU, Chiba, Japan
-\end{rSection}
 
-%----------------------------------------------------------------------------------------
-%	Educations
-%----------------------------------------------------------------------------------------
+\heading{Educations}
 
-\begin{rSection}{Educations}
 {\bf University of Tokyo, Tokyo, Japan}  \hfill {Apr. 2020 -- Mar. 2023}\\
 Ph.D. course in Physics\\
 Dissertation: \textit{``Joint cosmology analyses using gravitational weak lensing data from Subaru Hyper Suprime-Cam''}\\
@@ -125,25 +126,44 @@ B.A. in Physics
 \begin{rSection}{Grant \& Awards}
   Grant-in-Aid for JSPS Research Fellows (DC2), Japan Society for the Promotion of Science, Apr. 2021 -- Mar. 2023
 
-\textbf{\href{https://www.phys.s.u-tokyo.ac.jp/award/37776/}{The School of Science Encouragement Award (Doctoral program)}}, University of Tokyo, the School of Science, Mar. 2023
+  {\textbf{\href{https://www.phys.s.u-tokyo.ac.jp/award/37776/}{The School of Science Encouragement Award (Doctoral program)}}}, University of Tokyo, the School of Science, Mar. 2023
 
-  \textbf{\href{https://www.s.u-tokyo.ac.jp/en/IGPEES/}{WINGS IGPEES, course completion}}, Sep. 2018 -- Mar. 2023
+  {\textbf{\href{https://www.s.u-tokyo.ac.jp/en/IGPEES/}{WINGS IGPEES, course completion}}}, Sep. 2018 -- Mar. 2023
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
-%	OBSERVATIONS
+% Teaching
 %----------------------------------------------------------------------------------------
-\begin{rSection}{OBSERVATIONS}
-  \textbf{PI}, \href{https://subarutelescope.org/Observing/Schedule/S20B_abstract/S20B0032abst.html}{Definitive search for PBH dark matter in the multiverse cosmology with HSC}
+\begin{rSection}{Teaching}
+  Collaborative coding: git and github, \href{https://cd3.ipmu.jp/opening/}{CD3 symposium} 2023, Kavli IPMU
+
+  Coadvised Noriaki Nakasawa, a master student at the University of Nagoya, 2022
 \end{rSection}
 
-%----------------------------------------------------------------------------------------
-%	Professional Society
-%----------------------------------------------------------------------------------------
-\begin{rSection}{Professional Society}
-    The Astronomical Society of Japan (ASJ), 2018 -- present
 
-    The Physical Society of Japan (JPS), 2022 -- present
+%----------------------------------------------------------------------------------------
+%	Professional Activity
+%----------------------------------------------------------------------------------------
+\begin{rSection}{Professional Activities}
+    \begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} p{0.6\textwidth}}
+    Society              & The Astronomical Society of Japan (ASJ), 2018 -- present \\
+                         & The Physical Society of Japan (JPS), 2022 -- present  \\
+    Seminar/Workshop     & IPMU weekly lunch seminar (co-organizer), 2019 -- 2021 \\
+                         & HSC weaklensing mini workshop, Aug. 2022  \\
+    Referee              & International Journal of Modern Physics D \\
+    Computing            & \href{https://github.com/git-sunao/fft-extended-source}{\tt fft-extended-source} \\
+                         & \href{https://dark-emulator.readthedocs.io/en/latest/}{\tt dark emulator} as a part of \href{https://darkquestcosmology.github.io}{Dark Quest Project} \\
+                         & I can work with C, C++, Python, HSC pipeline (for image analysis) \\
+    Accepted Observation & {\textbf{PI}} of \href{https://subarutelescope.org/Observing/Schedule/S20B_abstract/S20B0032abst.html}{Definitive search for PBH dark matter in the multiverse cosmology with HSC}
+    \end{tabular}
+\end{rSection}
+
+\begin{rSection}{Public Engagement and Outreach}
+  Apperence on \href{https://www.nhk-ondemand.jp/goods/G2021114366SA000/}{\textit{Cosmic Front, Primordial Black Hole: the master key of the Universe (title in Japanese)}} produced by NHK, 2021
+
+  Interviewed by Quanta Magazine on \href{https://www.quantamagazine.org/clashing-cosmic-numbers-challenge-our-best-theory-of-the-universe-20240119/}{\textit{Clashing Cosmic Numbers Challenge Our Best Theory of the Universe}}, 2024
+  
+  Interviewed by Asahi Shimbun on \href{https://www.asahi.com/articles/ASR4H415RR48ULBH001.html}{\textit{Breakdown in the standard model of the Universe? An analysis using precise dark matter ``map'' (title in Japanese)}}, 2024
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
@@ -151,8 +171,8 @@ B.A. in Physics
 %----------------------------------------------------------------------------------------
 \clearpage
 \begin{rSection}{PUBLICATIONS}
-    For up-to-date list of my papers, please see \href{https://ui.adsabs.harvard.edu/search/filter_author_facet_hier_fq_author=AND&filter_author_facet_hier_fq_author=author_facet_hier%3A%221%2FSugiyama%2C%20S%2FSugiyama%2C%20Sunao%22&fq=%7B!type%3Daqp%20v%3D%24fq_author%7D&fq_author=(author_facet_hier%3A%221%2FSugiyama%2C%20S%2FSugiyama%2C%20Sunao%22)&q=pubdate%3A%5B2001-01%20TO%209999-12%5D%20author%3A(%22Sugiyama%2CSunao%22)&sort=date%20desc%2C%20bibcode%20desc&p_=0}{ADS}.
-    \vspace{-28em}
+    The up-to-date list of publication availabele at \href{https://ui.adsabs.harvard.edu/search/filter_author_facet_hier_fq_author=AND&filter_author_facet_hier_fq_author=author_facet_hier%3A%221%2FSugiyama%2C%20S%2FSugiyama%2C%20Sunao%22&fq=%7B!type%3Daqp%20v%3D%24fq_author%7D&fq_author=(author_facet_hier%3A%221%2FSugiyama%2C%20S%2FSugiyama%2C%20Sunao%22)&q=pubdate%3A%5B2001-01%20TO%209999-12%5D%20author%3A(%22Sugiyama%2CSunao%22)&sort=date%20desc%2C%20bibcode%20desc&p_=0}{ADS}.
+      \vspace{-33em}
     \nobibliography{publists/refs}
     \input{publists/publist.tex}
     \bibliographystyle{sty/etalstyle}
@@ -166,39 +186,12 @@ B.A. in Physics
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
-%	PEER REVIEWS
-%----------------------------------------------------------------------------------------
-\begin{rSection}{PEER REVIEWS}
-    Reviewer of International Journal of Modern Physics D
-\end{rSection}
-
-%----------------------------------------------------------------------------------------
 %	PRESS RELEASES
 %----------------------------------------------------------------------------------------
 \begin{rSection}{PRESS RELEASES}
   \href{https://www.ipmu.jp/en/20201224-PBH-multiverse}{Primordial black holes and the search for dark matter from the multiverse}
 
   \href{https://www.ipmu.jp/en/20230404-darkmatter}{How to see the invisible: Using dark matter distribution to test our cosmological model}
-\end{rSection}
-
-%----------------------------------------------------------------------------------------
-%	PROGRAMING SKILL
-%----------------------------------------------------------------------------------------
-\begin{rSection}{Programming skills}
-    \begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
-        Computing Language   & C, C++, Python, HSC pipeline (for image analysis)\\
-        Code developed       & \href{https://github.com/git-sunao/fft-extended-source}{\tt fft-extended-source} \\
-        Software Maintenance & \href{https://dark-emulator.readthedocs.io/en/latest/}{\tt dark emulator} as a part of \href{https://darkquestcosmology.github.io}{Dark Quest Project}
-    \end{tabular}
-\end{rSection}
-
-%----------------------------------------------------------------------------------------
-%	
-%----------------------------------------------------------------------------------------
-\begin{rSection}{Seminars and Workshops Organized}
-    IPMU weekly lunch seminar (co-organizer), 2019 -- 2021
-
-    HSC weaklensing mini workshop, Aug. 2022
 \end{rSection}
 
 \end{document}

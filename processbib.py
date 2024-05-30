@@ -50,6 +50,9 @@ def merge_bibs(bib1, bib2, identifier='eprint'):
     bib1_ids = [entry[identifier] for entry in bib1.entries]
 
     for i, entry in enumerate(bib2.entries):
+        if not identifier in entry:
+            print(f"Entry {entry['title']} does not have an identifier={identifier}. Skipping.")
+            continue
         if entry[identifier] in bib1_ids:
             continue
         print(f"New entry: {entry['title']}")

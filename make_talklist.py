@@ -90,7 +90,9 @@ def write(df, sep_by_year=True, only_selected=True, inverse=False, fnameout=None
         lines = '\n'.join(lines)
 
     if only_selected:
-        lines = 'Listing %d selected talks among %d talks.\n'%(N_talk_selected, N_talk_all) + lines
+        lines = 'Listing %d selected talks out of %d talks.\n'%(N_talk_selected, N_talk_all) +\
+                'See \href{https://github.com/git-sunao/cv/blob/main/tl.pdf}{here} for the full list of talks.' +\
+                lines
 
     if fnameout is None:
         fnameout = 'talklist.tex'

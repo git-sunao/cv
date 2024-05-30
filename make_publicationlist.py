@@ -52,7 +52,7 @@ def split_into_major_and_contributing(entries):
             contributing.append(entry)
     return major, contributing
 
-def my_publications_sorted_by_date():
+def my_paper_publications_sorted_by_date():
     bibd = load_bib('publists/refs.bib')
     entries_sorted = sort_entries_by_year_month(bibd)
     entries_major, entries_contributing = split_into_major_and_contributing(entries_sorted)
@@ -64,7 +64,7 @@ def my_publications_sorted_by_date():
             ab = ''
         return ab
 
-    tex = '* = Author list alphabeticized\\\\\n'
+    tex = '* = Author list alphabetized\\\\\n'
     tex+= '\\noindent\\textbf{\\textit{Major author}}\n'
     tex+= '\\begin{enumerate}\n'
     for entry in entries_major:
@@ -89,5 +89,6 @@ def my_publications_sorted_by_date():
     with open('publists/publist.tex', 'w') as f:
         f.write(tex)
 
+
 if __name__ == '__main__':
-   my_publications_sorted_by_date() 
+   my_paper_publications_sorted_by_date() 
