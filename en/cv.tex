@@ -20,13 +20,14 @@
 %	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
 %----------------------------------------------------------------------------------------
 
-\documentclass{sty/resume} % Use the custom resume.cls style
+\documentclass{../sty/resume} % Use the custom resume.cls style
 
 \usepackage[left=0.8 in,top=0.4in,right=0.8 in,bottom=0.4in]{geometry} % Document margins
 \usepackage{bibentry}
 \usepackage[dvipdfmx]{hyperref}
-\usepackage{sty/aas_macros}
+\usepackage{../sty/aas_macros}
 \usepackage{etaremune}
+\usepackage{tabularx}
 \newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}} 
 \newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
 \newcommand{\myname}[1]{{\textbf{#1}}}
@@ -82,41 +83,33 @@ citecolor=red,
 %----------------------------------------------------------------------------------------
 
 \begin{rSection}{Positions}
-\heading{Current positions}
-
-{\bf \href{https://www.physics.upenn.edu/people/sunao-sugiyama}{Postdoctoral researcher}} \hfill {Sep. 2023 -- Present}\\
-University of Pennsylvania, Philadelphia, the United States\\
-Mentor: Prof. Bhuvnesh Jain
-
-{\bf \href{https://www.jsps.go.jp/english/e-ab/index.html}{JSPS Overseas Research Fellow}} \hfill {Sep. 2023 -- Present}\\
-University of Pennsylvania, Philadelphia, the United States
-
-\heading{Past positions}
-
-{\bf \href{https://db.ipmu.jp/member/personal/5761en.html}{Postdoctoral researcher}} \hfill {Apr. 2023 -- Aug. 2023}\\
-Kavli IPMU, Chiba, Japan\\
-Mentor: Prof. Masahiro Takada
-
-{\bf \href{https://beyondai.jp/contents/projects/murayama/?lang=en}{Project Researcher}} \hfill {Apr. 2023 -- Aug. 2023}\\
-Beyond AI, Tokyo, Japan
-
-{\bf \href{https://www.jsps.go.jp/english/e-pd/}{JSPS Research Fellowships for Young Scientists} (DC2)} \hfill {Apr. 2021 -- Mar. 2023}\\
-Kavli IPMU, Chiba, Japan
-
-\heading{Educations}
-
-{\bf University of Tokyo, Tokyo, Japan}  \hfill {Apr. 2020 -- Mar. 2023}\\
-Ph.D. course in Physics\\
-Dissertation: \textit{``Joint cosmology analyses using gravitational weak lensing data from Subaru Hyper Suprime-Cam''}\\
-Supervisor: Prof. Masahiro Takada
-
-{\bf University of Tokyo, Tokyo, Japan}  \hfill {Apr. 2018 -- Mar. 2020}\\
-M.S. in Physics\\
-Dissertation: \textit{``Validation of cosmological analysis based on perturbation theory for wide-field galaxy survey''} \\
-Supervisor: Prof. Masahiro Takada
-
-{\bf University of Tokyo, Tokyo, Japan}  \hfill {Apr. 2014 -- Mar. 2018}\\
-B.A. in Physics
+  \centering
+  \begin{tabular}{ @{} >{\bfseries}l @{\hspace{3ex}} p{0.8\textwidth}}
+    \heading{Current}    & {\bf \href{https://www.physics.upenn.edu/people/sunao-sugiyama}{Postdoctoral researcher}}, \hfill Sep. 2023 -- present \\
+                         & University of Pennsylvania, Philadelphia, the United States \\
+                         & Mentor: Prof. Bhuvnesh Jain \\
+                         & {\bf \href{https://www.jsps.go.jp/english/e-ab/index.html}{JSPS Overseas Research Fellow}}, \hfill Sep. 2023 -- present \\
+                         & University of Pennsylvania, Philadelphia, the United States \\
+                         & \\
+    \heading{Past}       & {\bf \href{https://db.ipmu.jp/member/personal/5761en.html}{Postdoctoral researcher}}, \hfill Apr. 2023 -- Aug. 2023 \\
+                         & Kavli IPMU, Chiba, Japan \\
+                         & Mentor: Prof. Masahiro Takada \\
+                         & {\bf \href{https://beyondai.jp/contents/projects/murayama/?lang=en}{Project Researcher}}, \hfill Apr. 2023 -- Aug. 2023 \\
+                         & Beyond AI, Tokyo, Japan \\
+                         & {\bf \href{https://www.jsps.go.jp/english/e-pd/}{JSPS Research Fellowships for Young Scientists} (DC2)}, \hfill Apr. 2021 -- Mar. 2023 \\
+                         & Kavli IPMU, Chiba, Japan \\
+                         & \\
+    \heading{Educations} & {\bf University of Tokyo, Tokyo, Japan}, \hfill Apr. 2020 -- Mar. 2023 \\
+                         & Ph.D. course in Physics \\
+                         & Dissertation: \textit{``Joint cosmology analyses using gravitational weak lensing data from Subaru Hyper Suprime-Cam''} \\
+                         & Supervisor: Prof. Masahiro Takada \\
+                         & {\bf University of Tokyo, Tokyo, Japan}, \hfill Apr. 2018 -- Mar. 2020 \\
+                         & M.S. in Physics \\
+                         & Dissertation: \textit{``Validation of cosmological analysis based on perturbation theory for wide-field galaxy survey''} \\
+                         & Supervisor: Prof. Masahiro Takada \\
+                         & {\bf University of Tokyo, Tokyo, Japan}, \hfill Apr. 2014 -- Mar. 2018 \\
+                         & B.A. in Physics
+  \end{tabular}
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
@@ -173,16 +166,16 @@ B.A. in Physics
 \begin{rSection}{PUBLICATIONS}
     The up-to-date list of publication availabele at \href{https://ui.adsabs.harvard.edu/search/filter_author_facet_hier_fq_author=AND&filter_author_facet_hier_fq_author=author_facet_hier%3A%221%2FSugiyama%2C%20S%2FSugiyama%2C%20Sunao%22&fq=%7B!type%3Daqp%20v%3D%24fq_author%7D&fq_author=(author_facet_hier%3A%221%2FSugiyama%2C%20S%2FSugiyama%2C%20Sunao%22)&q=pubdate%3A%5B2001-01%20TO%209999-12%5D%20author%3A(%22Sugiyama%2CSunao%22)&sort=date%20desc%2C%20bibcode%20desc&p_=0}{ADS}.
       \vspace{-33em}
-    \nobibliography{publists/refs}
-    \input{publists/publist.tex}
-    \bibliographystyle{sty/etalstyle}
+    \nobibliography{../publists/refs}
+    \input{../publists/publist.tex}
+    \bibliographystyle{../sty/etalstyle}
 \end{rSection}
 
 %----------------------------------------------------------------------------------------
 %	PRESENTATIONS AT CONFERENCES, WORKSHOPS, AND MEETINGS
 %----------------------------------------------------------------------------------------
 \begin{rSection}{Selected talks}
-    \input{talklists/talklist.tex}
+    \input{../talklists/talklist.tex}
 \end{rSection}
 
 %----------------------------------------------------------------------------------------

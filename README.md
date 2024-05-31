@@ -24,3 +24,15 @@ latexmk -pdfdvi cv
 
 1. Add talks to `talklist.xlsx`
 2. Run `python make_talklist.py`, then `talklist.tex` is generated.
+
+## TODO
+- make japanese version
+    - pl.tex
+    - tl.tex
+    - publist (python)
+    - talklist (python)
+- shorten career section
+- link to proper documents
+    - from en to jp
+    - from website to cv
+- add non-journal article publication
