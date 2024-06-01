@@ -113,7 +113,10 @@ def make_tex_talk_list(df, sep_by_year=True, only_selected=True, inverse=False, 
     return lines
 
 def wrap_cv_style(tex_in, language='en'):
-    tex = '\\begin{rSection}{Selected talks}\n'
+    if language == 'en':
+        tex = '\\begin{rSection}{Talks}\n'
+    elif language == 'ja':
+        tex = '\\begin{rSection}{講演}\n'
     tex+= tex_in
     tex+= '\\end{rSection}\n'
     return tex

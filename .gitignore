@@ -2,6 +2,12 @@
 *.bbl
 *.dvi
 *.synctex.gz
+*.aux
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
 
 # 
 publists/refs2.bib
