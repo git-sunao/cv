@@ -1,4 +1,9 @@
 # 
+*.bbl
+*.dvi
+*.synctex.gz
+
+# 
 publists/refs2.bib
 
 # mac output

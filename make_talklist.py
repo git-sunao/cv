@@ -24,7 +24,7 @@ def replace_double_quatation(string):
         string_new += d+s
     return string_new
 
-def write(df, sep_by_year=True, only_selected=True, inverse=False, fnameout=None):
+def make_tex_talk_list(df, sep_by_year=True, only_selected=True, inverse=False, language='en'):
     # sort by year and month 
     df.sort_values(by=['year','month'], inplace=True, ascending = [False, False])
 
@@ -33,13 +33,22 @@ def write(df, sep_by_year=True, only_selected=True, inverse=False, fnameout=None
         df = df.query('selected == 1')
         N_talk_selected = len(df)
 
+    if language == 'en':
+        title_col_name = 'title (EN)'
+        conference_col_name = 'conference name (EN)'
+    elif language == 'ja':
+        title_col_name = 'title'
+        conference_col_name = 'conference name'
+    else:
+        raise ValueError('language must be either "en" or "ja".')
+
     lines = []
     years = []
     for index, row in df.iterrows():
         line = '\\item '
         # basic information
-        title    = row['title (EN)'] if row['title (EN)'] is not np.nan else row['title']
-        confname = row['conference name (EN)'] if row['conference name (EN)'] is not np.nan else  row['conference name']
+        title    = row[title_col_name] if row[title_col_name] is not np.nan else row['title']
+        confname = row[conference_col_name] if row[conference_col_name] is not np.nan else  row['conference name']
         year     = row['year']
         month    = ['Jan.', 'Feb.', 'Mar.', 'Apr.', 'May.', 'Jun.', 'Jul.', 'Aug.', 'Sep.', 'Oct.', 'Nov.', 'Dec.'][int(row['month'])-1]
         if row['conference url'] is not np.nan:
@@ -90,20 +99,44 @@ def write(df, sep_by_year=True, only_selected=True, inverse=False, fnameout=None
         lines = '\n'.join(lines)
 
     if only_selected:
-        lines = 'Listing %d selected talks out of %d talks.\n'%(N_talk_selected, N_talk_all) +\
-                'See \href{https://github.com/git-sunao/cv/blob/main/tl.pdf}{here} for the full list of talks.' +\
-                lines
+        if language == 'en':
+            lines = 'Listing %d selected talks out of %d talks.\n'%(N_talk_selected, N_talk_all) +\
+                    'See \href{https://github.com/git-sunao/cv/blob/main/en/sunao_type_list.pdf}{here} for the full list of talks.' +\
+                    lines
+        elif language == 'ja':
+            lines = '全%d件のうち%d件のトークを選出しました。\n'%(N_talk_all, N_talk_selected) +\
+                    '全リストは\href{https://github.com/git-sunao/cv/blob/main/ja/sunao_type_list.pdf}{こちら}をご覧ください。' +\
+                    lines
+        else:
+            raise ValueError('language must be either "en" or "ja".')
 
-    if fnameout is None:
-        fnameout = 'talklist.tex'
+    return lines
 
-    with open(fnameout, 'w') as f:
-        f.write(lines)
-
+def wrap_cv_style(tex_in, language='en'):
+    tex = '\\begin{rSection}{Selected talks}\n'
+    tex+= tex_in
+    tex+= '\\end{rSection}\n'
+    return tex
 
 if __name__ == '__main__':
     df = read()
     df = discard_row_with_NaN_title(df)
-    write(df, sep_by_year=False, only_selected=True , fnameout='talklists/talklist.tex')
-    write(df, sep_by_year=False, only_selected=False, fnameout='talklists/talklist_full.tex')
-    write(df, sep_by_year=True , only_selected=False, fnameout='talklists/talklist_full_sepbyyear.tex')
+    for language in ['en', 'ja']:
+        # 
+        tex = make_tex_talk_list(df, sep_by_year=False, only_selected=True, language=language)
+        tex = wrap_cv_style(tex, language=language)
+        fnameout='%s/talklist.tex'%language
+        with open(fnameout, 'w') as f:
+            f.write(tex)
+        # 
+        tex = make_tex_talk_list(df, sep_by_year=False, only_selected=False, language=language)
+        tex = wrap_cv_style(tex, language=language)
+        fnameout='%s/talklist_full.tex'%language
+        with open(fnameout, 'w') as f:
+            f.write(tex)
+        #
+        tex = make_tex_talk_list(df, sep_by_year=True, only_selected=False, language=language)
+        tex = wrap_cv_style(tex, language=language)
+        fnameout='%s/talklist_full_sepbyyear.tex'%language
+        with open(fnameout, 'w') as f:
+            f.write(tex)

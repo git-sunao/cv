@@ -1,51 +1,3 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% Medium Length Professional CV
-% LaTeX Template
-% Version 2.0 (8/5/13)
-%
-% This template has been downloaded from:
-% http://www.LaTeXTemplates.com
-%
-% Original author:
-% Trey Hunner (http://www.treyhunner.com/)
-%
-% Important note:
-% This template requires the resume.cls file to be in the same directory as the
-% .tex file. The resume.cls file provides the resume style used for structuring the
-% document.
-%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%----------------------------------------------------------------------------------------
-%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
-%----------------------------------------------------------------------------------------
-
-\documentclass{../sty/resume} % Use the custom resume.cls style
-
-\usepackage[left=0.8 in,top=0.4in,right=0.8 in,bottom=0.4in]{geometry} % Document margins
-\usepackage{bibentry}
-\usepackage[dvipdfmx]{hyperref}
-\usepackage{../sty/aas_macros}
-\usepackage{etaremune}
-\newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}} 
-\newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
-\newcommand{\myname}[1]{{\textbf{#1}}}
-\newcommand{\comment}[1]{}
-\newcommand{\heading}[1]{\hspace{-1.5em}\noindent\textbf{\textit{#1}}}
-\hypersetup{
-setpagesize=false,
-bookmarksnumbered=true,
-bookmarksopen=true,
-colorlinks=true,
-linkcolor=blue,
-citecolor=red,
-}
-
-\name{杉山　素直} % Your name
-\address{Compiled on \today}
-
-\begin{document}
-
 %----------------------------------------------------------------------------------------
 %	CONTACT INFORMATION
 %----------------------------------------------------------------------------------------
@@ -56,7 +8,7 @@ citecolor=red,
     部屋    & 4N21 \\
     メール  & ssunao@sas.upenn.edu \\
     ウェブサイト & \url{https://git-sunao.github.io} \\
-    Github  & \url{https://github.com/git-sunao} \\
+    GitHub  & \url{https://github.com/git-sunao} \\
     \end{tabular}
 \end{rSection}
 
@@ -157,33 +109,3 @@ citecolor=red,
   
   朝日新聞, \href{https://www.asahi.com/articles/ASR4H415RR48ULBH001.html}{\textit{宇宙の標準理論にほころび？　暗黒物質の精密な「地図」で解析}}, インタビュー, 2024年
 \end{rSection}
-
-%----------------------------------------------------------------------------------------
-%	Publication
-%----------------------------------------------------------------------------------------
-\clearpage
-\begin{rSection}{論文}
-    最新の論文リストは\href{https://ui.adsabs.harvard.edu/search/filter_author_facet_hier_fq_author=AND&filter_author_facet_hier_fq_author=author_facet_hier%3A%221%2FSugiyama%2C%20S%2FSugiyama%2C%20Sunao%22&fq=%7B!type%3Daqp%20v%3D%24fq_author%7D&fq_author=(author_facet_hier%3A%221%2FSugiyama%2C%20S%2FSugiyama%2C%20Sunao%22)&q=pubdate%3A%5B2001-01%20TO%209999-12%5D%20author%3A(%22Sugiyama%2CSunao%22)&sort=date%20desc%2C%20bibcode%20desc&p_=0}{ADS}をご覧ください.
-      \vspace{-33em}
-    \nobibliography{../publists/refs}
-    \input{../publists/publist.tex}
-    \bibliographystyle{../sty/etalstyle}
-\end{rSection}
-
-%----------------------------------------------------------------------------------------
-%	PRESENTATIONS AT CONFERENCES, WORKSHOPS, AND MEETINGS
-%----------------------------------------------------------------------------------------
-\begin{rSection}{講演}
-    \input{../talklists/talklist.tex}
-\end{rSection}
-
-%----------------------------------------------------------------------------------------
-%	PRESS RELEASES
-%----------------------------------------------------------------------------------------
-\begin{rSection}{プレスリリース}
-  \href{https://www.ipmu.jp/ja/20201224-PBH-multiverse}{原始ブラックホールと多元宇宙が予言するダークマターの探索}
-
-  \href{https://www.ipmu.jp/ja/20230404-darkmatter}{ダークマターを見る！ – HSC国際チームが宇宙の標準理論を検証}
-\end{rSection}
-
-\end{document}

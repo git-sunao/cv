@@ -27,10 +27,12 @@
 \usepackage[dvipdfmx]{hyperref}
 \usepackage{../sty/aas_macros}
 \usepackage{etaremune}
+\usepackage{tabularx}
 \newcommand{\tab}[1]{\hspace{.2667\textwidth}\rlap{#1}} 
 \newcommand{\itab}[1]{\hspace{0em}\rlap{#1}}
-\newcommand{\myname}[1]{\textbf{#1}}
+\newcommand{\myname}[1]{{\textbf{#1}}}
 \newcommand{\comment}[1]{}
+\newcommand{\heading}[1]{\hspace{-1.5em}\noindent\textbf{\textit{#1}}}
 \hypersetup{
 setpagesize=false,
 bookmarksnumbered=true,
@@ -41,15 +43,12 @@ citecolor=red,
 }
 
 \name{Sunao Sugiyama} % Your name
-\address{List of talks, Compiled on \today}
+\address{{\bf CV}, Compiled on \today}
 
 \begin{document}
-
-%----------------------------------------------------------------------------------------
-%	PRESENTATIONS AT CONFERENCES, WORKSHOPS, AND MEETINGS
-%----------------------------------------------------------------------------------------
-\begin{rSection}{}
-    \input{../talklists/talklist_full_sepbyyear.tex}
-\end{rSection}
-
+\input{cv}
+\clearpage
+\input{publist}
+\input{talklist}
+\input{prlist}
 \end{document}
