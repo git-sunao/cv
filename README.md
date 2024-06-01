@@ -26,12 +26,6 @@ latexmk -pdfdvi cv
 2. Run `python make_talklist.py`, then `talklist.tex` is generated.
 
 ## TODO
-- make japanese version
-    - pl.tex
-    - tl.tex
-    - publist (python)
-    - talklist (python)
-- shorten career section
 - link to proper documents
     - from en to jp
     - from website to cv
