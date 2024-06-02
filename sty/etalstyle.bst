@@ -461,14 +461,15 @@ FUNCTION {format.issn}
 }
 
 FUNCTION {format.doi}
-{ doi empty$
-    { "" }
-    {
-      new.block
-      "\doi{" doi * "}" *
-    }
-  if$
-}
+% { doi empty$
+%     { "" }
+%     {
+%       new.block
+%       "\doi{" doi * "}" *
+%     }
+%   if$
+% }
+{ "" }
 FUNCTION {format.note}
 {
  note empty$
@@ -924,13 +925,13 @@ FUNCTION {article}
   	{ format.journal.pages }
   	{
   	format.journal.pages adsurl make.href.hyperref 
-  	format.note output
+  	% format.note output
 	}
 	if$
   format.issn output
   format.doi output
   new.block
-  format.note output
+  % format.note output
   fin.entry
 }
 FUNCTION {book}
