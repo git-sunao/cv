@@ -90,7 +90,27 @@ def my_paper_publications_sorted_by_date(language='en'):
             if 'status' in entry:
                 tex += ', %s'%entry['status']
             tex += '\n'
-        tex+= '\\end{enumerate}'
+        tex+= '\\end{enumerate}\n\n'
+
+    return tex
+
+def my_article_sorted_by_date(language='en'):
+    bibd = load_bib('publists/article.bib')
+    entries_sorted = sort_entries_by_year_month(bibd)
+    tex = ''
+    if language == 'en':
+        tex+= '\\noindent\\textbf{\\textit{Other Articles}}\n'
+    else:
+        tex+= '\\noindent\\textbf{\\textit{他の記事}}\n'
+
+    tex+= '\\begin{enumerate}\n'
+    for entry in entries_sorted:
+        tex+= "\\item \\bibentry{%s}"%entry['ID']
+        if 'status' in entry:
+            tex += ', %s'%entry['status']
+        tex += '\n'
+    tex+= '\\end{enumerate}\n'
+    tex+= '\n'
 
     return tex
 
@@ -100,12 +120,12 @@ def wrap_cv_style(tex_in, language='en'):
         tex = '\\begin{rSection}{PUBLICATIONS}\n'
         tex+= 'The up-to-date list of publication availabele at \\href{https://ui.adsabs.harvard.edu/search/filter_author_facet_hier_fq_author=AND&filter_author_facet_hier_fq_author=author_facet_hier%3A%221%2FSugiyama%2C%20S%2FSugiyama%2C%20Sunao%22&fq=%7B!type%3Daqp%20v%3D%24fq_author%7D&fq_author=(author_facet_hier%3A%221%2FSugiyama%2C%20S%2FSugiyama%2C%20Sunao%22)&q=pubdate%3A%5B2001-01%20TO%209999-12%5D%20author%3A(%22Sugiyama%2CSunao%22)&sort=date%20desc%2C%20bibcode%20desc&p_=0}{ADS}.\n'
         tex+= '\\vspace{-33em}\n'
-        tex+= '\\nobibliography{../publists/refs}\n'
+        tex+= '\\nobibliography{../publists/refs, ../publists/article}\n'
     else:
         tex = '\\begin{rSection}{出版/発表論文}\n'
         tex+= '最新の論文リストは\\href{https://ui.adsabs.harvard.edu/search/filter_author_facet_hier_fq_author=AND&filter_author_facet_hier_fq_author=author_facet_hier%3A%221%2FSugiyama%2C%20S%2FSugiyama%2C%20Sunao%22&fq=%7B!type%3Daqp%20v%3D%24fq_author%7D&fq_author=(author_facet_hier%3A%221%2FSugiyama%2C%20S%2FSugiyama%2C%20Sunao%22)&q=pubdate%3A%5B2001-01%20TO%209999-12%5D%20author%3A(%22Sugiyama%2CSunao%22)&sort=date%20desc%2C%20bibcode%20desc&p_=0}{ADS}を参照ください。'
         tex+= '\\vspace{-33em}\n'
-        tex+= '\\nobibliography{../publists/refs}\n'
+        tex+= '\\nobibliography{../publists/refs, ../publists/article}\n'
 
     tex+= tex_in
 
@@ -117,6 +137,7 @@ def wrap_cv_style(tex_in, language='en'):
 if __name__ == '__main__':
     for language in ['en', 'ja']:
         tex = my_paper_publications_sorted_by_date(language=language)
+        tex+= my_article_sorted_by_date(language=language)
         tex = wrap_cv_style(tex, language=language)
         fname_out='{}/publist.tex'.format(language)
         with open(fname_out, 'w') as f:
