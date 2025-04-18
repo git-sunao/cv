@@ -67,10 +67,12 @@ def my_paper_publications_sorted_by_date(language='en'):
     tex = ''
     if language == 'en':
         tex+= '* = Author list alphabetized\\\\\n'
-        tex+= '\\noindent\\textbf{\\textit{Major author}}\n'
+        # tex+= '\\noindent\\textbf{\\textit{Major author}}\n'
+        tex+= '\\noindent\\textbf{\\textit{First-author papers or co-authored papers with significant contributions}}\n'
     else:
         tex+= '* = 著者リストアルファベット順\\\\\n'
-        tex+= '\\noindent\\textbf{\\textit{主著者}}\n'
+        # tex+= '\\noindent\\textbf{\\textit{主著者}}\n'
+        tex+= '\\noindent\\textbf{\\textit{筆頭著者または主要な貢献をした査読付論文}}\n'
 
     tex+= '\\begin{enumerate}\n'
     for entry in entries_major:
@@ -82,7 +84,8 @@ def my_paper_publications_sorted_by_date(language='en'):
     tex+= '\n'
 
     if len(entries_contributing) > 0:
-        tex+= '\\noindent\\textbf{\\textit{Contributing author}}\n' if language == 'en' else '\\noindent\\textbf{\\textit{共著者}}\n'
+        # tex+= '\\noindent\\textbf{\\textit{Contributing author}}\n' if language == 'en' else '\\noindent\\textbf{\\textit{共著者}}\n'
+        tex+= '\\noindent\\textbf{\\textit{co-authored  papers}}\n' if language == 'en' else '\\noindent\\textbf{\\textit{その他の共著論文}}\n'
         tex+= '\\begin{enumerate}\n'
         tex+= '\\setcounter{enumi}{%d}'%len(entries_major)
         for entry in entries_contributing:
