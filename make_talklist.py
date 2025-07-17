@@ -24,7 +24,7 @@ def replace_double_quatation(string):
         string_new += d+s
     return string_new
 
-def make_tex_talk_list(df, sep_by_year=True, only_selected=True, inverse=False, language='en'):
+def make_tex_talk_list(df, sep_by_year=True, only_selected=True, inverse=False, language='en', add_location=False):
     # sort by year and month 
     df.sort_values(by=['year','month'], inplace=True, ascending = [False, False])
 
@@ -57,6 +57,8 @@ def make_tex_talk_list(df, sep_by_year=True, only_selected=True, inverse=False, 
         else:
             line+= "\\textbf{%s}, %s, %d, %s"%( title, confname, year, month )
         # append additional infomation
+        if add_location:
+            line += ', '+str(row['location'])
         if not np.isnan(row['oral']):
             line += ', \\textit{Oral}'
         if not np.isnan(row['poster']):
@@ -143,3 +145,10 @@ if __name__ == '__main__':
         fnameout='%s/talklist_full_sepbyyear.tex'%language
         with open(fnameout, 'w') as f:
             f.write(tex)
+
+    tex = make_tex_talk_list(df, sep_by_year=False, only_selected=False, language='en', add_location=True)
+    tex = wrap_cv_style(tex, language=language)
+    fnameout='en/talklist_full_location.tex'
+    with open(fnameout, 'w') as f:
+        f.write(tex)
+

@@ -42,7 +42,14 @@ def add_alphabetical(bib):
         bib.entries[i]['alphabetical'] = 'false' if c == 'n' else 'true'
     return bib
 
-def merge_bibs(bib1, bib2, identifier='eprint'):
+def print_bib_entry(bib_entry):
+    nmax = 0
+    for key, val in bib_entry.items():
+        nmax = max(nmax, len(key))
+    for key, val in bib_entry.items():
+        print(key.ljust(nmax+5), '|', val)
+
+def merge_bibs(bib1, bib2, identifier='eprint', update=False):
     """
     Merges two bibs. The first is the base bib, and the second is the new one.
     """
@@ -54,9 +61,16 @@ def merge_bibs(bib1, bib2, identifier='eprint'):
             print(f"Entry {entry['title']} does not have an identifier={identifier}. Skipping.")
             continue
         if entry[identifier] in bib1_ids:
-            continue
-        print(f"New entry: {entry['title']}")
-        bib1.entries.append(entry)
+            if update:
+                bib1_idx = bib1_ids.index(entry[identifier])
+                entry_bib1 = bib1.entries[bib1_idx]
+                for key, val in entry.items():
+                    if key in entry_bib1: continue
+                    entry_bib1[key] = val
+                bib1.entries[bib1_idx] = entry_bib1
+        else:
+            print(f"New entry: {entry['title']}")
+            bib1.entries.append(entry)
 
 if __name__ == '__main__':
     # existing bib
