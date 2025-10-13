@@ -5,8 +5,13 @@ Copyright Sunao Sugiyama
 import bibtexparser # https://bibtexparser.readthedocs.io/en/master/
 import os
 
-myname1 = 'Sunao'
-myname2 = 'Sugiyama'
+# myname1 = 'Sugiyama'
+# myname2 = 'Sunao'
+
+PATTERN_1 = '{Sugiyama}, Sunao'
+PATTERN_2 = '{Sugiyama}, S.'
+PATTERN_3 = '{Sunao}, Sugiyama'
+PATTERN_4 = '{Sunao}, S.'
 
 def load_bib(fname):
     with open(fname) as bibtex_file:
@@ -21,7 +26,11 @@ def emphasize_myname(bib):
     for i, entry in enumerate(bib.entries):
         if '\myname' in entry['author']:
             continue
-        bib.entries[i]['author'] = entry['author'].replace('{%s}, %s'%(myname1, myname2), '\myname{{%s}, %s}'%(myname1, myname2))
+        for pattern in [PATTERN_1, PATTERN_2, PATTERN_3, PATTERN_4]:
+            if pattern in entry['author']:
+                # print( entry['author'].replace(pattern, '\myname{%s}'%pattern) )
+                bib.entries[i]['author'] = entry['author'].replace(pattern, '\myname{%s}'%pattern)
+        #bib.entries[i]['author'] = entry['author'].replace('{%s}, %s'%(myname1, myname2), '\myname{{%s}, %s}'%(myname1, myname2))
     return bib
 
 def add_contribution(bib):
