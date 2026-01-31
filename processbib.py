@@ -24,12 +24,12 @@ def dump_bib(fname, bib):
 
 def emphasize_myname(bib):
     for i, entry in enumerate(bib.entries):
-        if '\myname' in entry['author']:
+        if r'\myname' in entry['author']:
             continue
         for pattern in [PATTERN_1, PATTERN_2, PATTERN_3, PATTERN_4]:
             if pattern in entry['author']:
                 # print( entry['author'].replace(pattern, '\myname{%s}'%pattern) )
-                bib.entries[i]['author'] = entry['author'].replace(pattern, '\myname{%s}'%pattern)
+                bib.entries[i]['author'] = entry['author'].replace(pattern, r'\myname{%s}'%pattern)
         #bib.entries[i]['author'] = entry['author'].replace('{%s}, %s'%(myname1, myname2), '\myname{{%s}, %s}'%(myname1, myname2))
     return bib
 
@@ -101,9 +101,10 @@ if __name__ == '__main__':
     bib = load_bib('publists/refs.bib')
     
     # new bib file
-    if os.path.exists('publists/refs2.bib'):
-        print('>>> Adding bib entries from publists/refs2.bib to publists/refs.bib')
-        bib2 = load_bib('publists/refs2.bib')
+    bib2= 'publists/refs6.bib'
+    if os.path.exists(bib2):
+        print(f'>>> Adding bib entries from {bib2} to publists/refs.bib')
+        bib2 = load_bib(bib2)
         merge_bibs(bib, bib2)
 
     # updates
