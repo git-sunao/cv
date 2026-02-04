@@ -117,7 +117,7 @@ def my_article_sorted_by_date(language='en'):
 
     return tex
 
-def wrap_cv_style(tex_in, language='en', fullauthor=False, space=60):
+def wrap_cv_style(tex_in, language='en', fullauthor=False, space=55):
 
     if language == 'en':
         tex = '\\begin{rSection}{PUBLICATIONS}\n'
