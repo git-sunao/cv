@@ -93,10 +93,10 @@ def make_tex_talk_list(df, sep_by_year=True, only_selected=True, inverse=False, 
         lines = '\n\n'.join(lines2[::-1])
     else:
         if inverse:
-            lines = np.insert(lines, 0, '\\begin{etaremune}')
+            lines = np.insert(lines, 0, '\\begin{etaremune}[itemsep=0pt, parsep=0pt, topsep=0pt, partopsep=0pt]')
             lines = np.append(lines, '\\end{etaremune}')
         else:
-            lines = np.insert(lines, 0, '\\begin{enumerate}')
+            lines = np.insert(lines, 0, '\\begin{enumerate}[itemsep=0pt, parsep=0pt, topsep=0pt, partopsep=0pt]')
             lines = np.append(lines, '\\end{enumerate}')
         lines = '\n'.join(lines)
 

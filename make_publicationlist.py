@@ -74,7 +74,7 @@ def my_paper_publications_sorted_by_date(language='en'):
         # tex+= '\\noindent\\textbf{\\textit{主著者}}\n'
         tex+= '\\noindent\\textbf{\\textit{筆頭著者または主要な貢献をした査読付論文}}\n'
 
-    tex+= '\\begin{enumerate}\n'
+    tex+= '\\begin{enumerate}[itemsep=0pt, parsep=0pt, topsep=0pt, partopsep=0pt]\n'
     for entry in entries_major:
         tex+= "\\item " + check_ab(entry) + "\\bibentry{%s}"%entry['ID']
         if 'status' in entry:
@@ -86,7 +86,7 @@ def my_paper_publications_sorted_by_date(language='en'):
     if len(entries_contributing) > 0:
         # tex+= '\\noindent\\textbf{\\textit{Contributing author}}\n' if language == 'en' else '\\noindent\\textbf{\\textit{共著者}}\n'
         tex+= '\\noindent\\textbf{\\textit{co-authored  papers}}\n' if language == 'en' else '\\noindent\\textbf{\\textit{その他の共著論文}}\n'
-        tex+= '\\begin{enumerate}\n'
+        tex+= '\\begin{enumerate}[itemsep=0pt, parsep=0pt, topsep=0pt, partopsep=0pt]\n'
         tex+= '\\setcounter{enumi}{%d}'%len(entries_major)
         for entry in entries_contributing:
             tex+= "\\item " + check_ab(entry) + "\\bibentry{%s}"%entry['ID']
@@ -144,7 +144,7 @@ if __name__ == '__main__':
     for language in ['en', 'ja']:
         tex = my_paper_publications_sorted_by_date(language=language)
         tex+= my_article_sorted_by_date(language=language)
-        tex = wrap_cv_style(tex, language=language)
+        tex = wrap_cv_style(tex, language=language, space=63)
         fname_out='{}/publist.tex'.format(language)
         with open(fname_out, 'w') as f:
             print('writing to {}'.format(fname_out))
@@ -153,7 +153,7 @@ if __name__ == '__main__':
     for language in ['en', 'ja']:
         tex = my_paper_publications_sorted_by_date(language=language)
         tex+= my_article_sorted_by_date(language=language)
-        tex = wrap_cv_style(tex, language=language, fullauthor=True)
+        tex = wrap_cv_style(tex, language=language, fullauthor=True, space=63)
         fname_out='{}/publist_fullauthor.tex'.format(language)
         with open(fname_out, 'w') as f:
             print('writing to {}'.format(fname_out))
