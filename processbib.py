@@ -101,7 +101,7 @@ if __name__ == '__main__':
     bib = load_bib('publists/refs.bib')
     
     # new bib file
-    bib2= 'publists/refs2.bib'
+    bib2= 'publists/refs6.bib'
     if os.path.exists(bib2):
         print(f'>>> Adding bib entries from {bib2} to publists/refs.bib')
         bib2 = load_bib(bib2)
